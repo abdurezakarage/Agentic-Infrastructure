@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+# Project Chimera Rules
+- This is an autonomous influencer system using Planner-Worker-Judge swarm.
+- NEVER write code without checking specs/ first.
+- Always explain your plan before implementing.
+- Use MCP for external integrations, not direct API calls.
+- Follow TDD: write failing tests first.
