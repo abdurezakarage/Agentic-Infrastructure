@@ -1,5 +1,4 @@
 import pytest
-import json
 from pydantic import ValidationError
 
 def test_skill_fetch_trends_input_validation():

@@ -2,8 +2,6 @@
 """
 Validate that implementation matches specifications.
 """
-import json
-import yaml
 import sys
 from pathlib import Path
 

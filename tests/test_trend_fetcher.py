@@ -1,5 +1,3 @@
-import pytest
-from pydantic import ValidationError
 from specs.technical import TrendData
 from skills.skill_fetch_trends.core import fetch_trends
 
