@@ -1,5 +1,8 @@
 .PHONY: setup test spec-check docker-test clean
 
+IMAGE_NAME ?= chimera
+IMAGE_TAG ?= $(if $(GITHUB_SHA),$(GITHUB_SHA),latest)
+
 # Initialize environment
 setup:
 	uv sync
@@ -11,8 +14,8 @@ test:
 
 # Run tests in Docker
 docker-test:
-	docker build -t chimera-test .
-	docker run --rm chimera-test
+	docker build -t $(IMAGE_NAME):$(IMAGE_TAG) -t $(IMAGE_NAME):latest .
+	docker run --rm $(IMAGE_NAME):$(IMAGE_TAG)
 
 # Validate specs against implementation
 spec-check:
