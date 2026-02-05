@@ -13,6 +13,6 @@ class TrendData(BaseModel):
     niche: str = Field(..., min_length=1)
     score: confloat(ge=0, le=1)  # type: ignore[valid-type]
     volume: conint(ge=0)  # type: ignore[valid-type]
-    sources: List[str] = Field(..., min_items=1)
+    sources: List[str] = Field(..., min_length=1)
     timestamp: datetime
-    relevant_keywords: List[str] = Field(..., min_items=1)
+    relevant_keywords: List[str] = Field(..., min_length=1)

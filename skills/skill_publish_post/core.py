@@ -15,7 +15,7 @@ class PublishPostInput(BaseModel):
 
 def publish_post(
     content: Dict | None = None,
-    platform: str | None = None,
+    platform: Literal["twitter", "instagram", "tiktok"] | None = None,
     schedule_time: str | None = None,
     ai_disclosure: bool = True,
 ) -> Dict:

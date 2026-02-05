@@ -27,8 +27,8 @@ def _build_hashtags(context: str, count: int) -> List[str]:
 
 def generate_caption(
     context: str,
-    platform: str,
-    tone: str,
+    platform: Literal["twitter", "instagram", "tiktok"],
+    tone: Literal["witty", "professional", "casual"],
     image_description: str | None = None,
     hashtags: int = 3,
 ) -> Dict:
