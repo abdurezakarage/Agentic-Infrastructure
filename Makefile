@@ -20,8 +20,8 @@ spec-check:
 
 # Code quality checks
 lint:
-	uv run ruff check .
-	uv run mypy .
+	uv run --with ruff ruff check .
+	uv run --with mypy mypy .
 
 # Clean up
 clean:
