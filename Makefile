@@ -1,4 +1,4 @@
-.PHONY: setup test spec-check docker-test clean
+.PHONY: setup test spec-check docker-build docker-test clean
 
 IMAGE_NAME ?= chimera
 IMAGE_TAG ?= $(if $(GITHUB_SHA),$(GITHUB_SHA),latest)
@@ -16,6 +16,9 @@ test:
 docker-test:
 	docker build -t $(IMAGE_NAME):$(IMAGE_TAG) -t $(IMAGE_NAME):latest .
 	docker run --rm $(IMAGE_NAME):$(IMAGE_TAG)
+
+docker-build:
+	docker build -t $(IMAGE_NAME):$(IMAGE_TAG) -t $(IMAGE_NAME):latest .
 
 # Validate specs against implementation
 spec-check:
