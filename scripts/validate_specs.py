@@ -22,10 +22,10 @@ def check_spec_files():
             missing.append(spec)
     
     if missing:
-        print(f"❌ Missing spec files: {missing}")
+        print(f"[FAIL] Missing spec files: {missing}")
         return False
-    
-    print("✅ All spec files present")
+
+    print("[OK] All spec files present")
     return True
 
 def check_skill_readmes():
@@ -33,16 +33,16 @@ def check_skill_readmes():
     skill_dirs = list(Path("skills").glob("skill_*/"))
     
     if len(skill_dirs) < 3:
-        print(f"❌ Need at least 3 skills, found {len(skill_dirs)}")
+        print(f"[FAIL] Need at least 3 skills, found {len(skill_dirs)}")
         return False
     
     for skill_dir in skill_dirs:
         readme = skill_dir / "README.md"
         if not readme.exists():
-            print(f"❌ Missing README.md in {skill_dir}")
+            print(f"[FAIL] Missing README.md in {skill_dir}")
             return False
-    
-    print(f"✅ All {len(skill_dirs)} skills have READMEs")
+
+    print(f"[OK] All {len(skill_dirs)} skills have READMEs")
     return True
 
 if __name__ == "__main__":
@@ -50,8 +50,8 @@ if __name__ == "__main__":
     skills_ok = check_skill_readmes()
     
     if spec_ok and skills_ok:
-        print("\n✅ All spec validation passed")
+        print("\n[OK] All spec validation passed")
         sys.exit(0)
     else:
-        print("\n❌ Spec validation failed")
+        print("\n[FAIL] Spec validation failed")
         sys.exit(1)
